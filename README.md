@@ -22,5 +22,5 @@ Capturing, Segmentation of group image and Face Detection, Face comparison and
 Recognition, Updating of Attendance in database.
 
 
-For More Information View My Project Video
+For More Information View My Project Video and Project Report
 
