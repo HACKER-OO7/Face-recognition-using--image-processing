@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FaceNet-Dataset</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+         height: 150vh">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">FaceNet</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Dataset</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Select
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled"></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <p>
+        <h1 align="center">Generate a DataSet</h1>
+        </p>
+        <br>
+        <br>
+        <form method="post" action="{{ url_for('tasks') }}" enctype="multipart/form-data">
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Enter Username</span>
+                <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Password</span>
+                <input type="password" class="form-control" name="password" placeholder="password">
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="input-group mb-3 w-25 mx-4">
+                    <span class="input-group-text" id="basic-addon1">First Name</span>
+                    <input type="text" class="form-control" name="firstname" placeholder="firstname">
+                </div>
+                <div class="input-group mb-3 w-25 mx-4">
+                    <span class="input-group-text" id="basic-addon1">Last Name</span>
+                    <input type="text" class="form-control" name="lastname" placeholder="lastname">
+                </div>
+            </div>
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Birthday</span>
+                <input type="date" class="form-control" placeholder="date">
+            </div>
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Gender</span>
+                <input type="text" class="form-control" name="gender" placeholder="gender">
+            </div>
+
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input type="email" class="form-control" name="email" placeholder="email">
+            </div>
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Phone Number</span>
+                <input type="text" class="form-control" name="phoneno" placeholder="phoneno">
+            </div>
+
+            <div class="input-group mb-3 w-25 mx-4">
+                <span class="input-group-text" id="basic-addon1">Semester</span>
+                <input type="text" class="form-control" name="sem" placeholder="sem">
+            </div>
+
+            <!-- <a class="btn btn-success me-2" href="#" role="button">Generate Dataset</a> -->
+            <div class="form-group mx-4">
+                <button class="btn btn-success float-right" type="submit" value="Stop/Start" name="start">
+                    Generate Dataset
+                </button>
+            </div>
+        </form>
+        <img src="{{ url_for('video_feed') }}" height="30%">
+
+        <form method="post" action="/" enctype="multipart/form-data">
+            <div class="form-group mx-4">
+                <button class="btn btn-success float-right" type="submit" value="switch=1" name="close">
+                    Close
+                </button>
+            </div>
+        </form>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- This is Footer -->
+        <div class="container my-10 ">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="text-center text-muted">©FaceNet, Inc</p>
+            </footer>
+        </div class="container">
+    </div>
+
+</body>
+
+</html>

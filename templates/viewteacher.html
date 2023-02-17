@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FaceNet-Attendance system</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+         height: 250vh">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">FaceNet</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gen">Dataset</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Select
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled"></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container my-3">
+            <h2>Teacher List</h2>
+
+            {% if teacher|length == 0 %}
+
+            <div class="alert alert-dark" role="alert">
+                No teacher found. 
+            </div>
+            {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">SNo</th>
+                        <th scope="col">USERNAME</th>
+                        <th scope="col">FIRSTNAME</th>
+                        <th scope="col">LASTNAME</th>
+                        <th scope="col">DATE OF BIRTH</th>
+                        <th scope="col">GENDER</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">PHONE NO</th>
+                        <th scope="col">SUBJECT</th>
+                       
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for tech in teacher %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{tech.username}}</td>
+                        <td>{{tech.fname}}</td>
+                        <td>{{tech.lname}}</td>
+                        <td>{{tech.dob}}</td>
+                        <td>{{tech.gender}}</td>
+                        <td>{{tech.email}}</td>
+                        <td>{{tech.pno}}</td>
+                        <td>{{tech.subject}}</td>
+                       
+                        <td>
+                            <a href="/update/{{tech.username}}" type="button"
+                                class="btn btn-outline-primary btn-sm mx-1">Update</button>
+                                <a href="/delete/{{tech.username}}" type="button"
+                                    class="btn btn-outline-danger btn-sm mx-1">Delete</button>
+
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+            <form method="post" action="/" enctype="multipart/form-data">
+                <div class="form-group mx-4">
+                    <button class="btn btn-success float-right" type="submit"  name="close">
+                        Close
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- This is Footer -->
+        <div class="container my-10 ">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="text-center text-muted">©FaceNet, Inc</p>
+            </footer>
+        </div class="container">
+    </div>
+
+</body>
+
+</html>

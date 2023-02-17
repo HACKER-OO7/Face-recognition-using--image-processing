@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FaceNet-Attendance system</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+ 
+
+</head>
+
+<body>
+  <!-- <div class="bg-image" style="background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%); height: 250vh"> -->
+  <div class="bg-image" style="background-image: linear-gradient(90deg, #000328 0%, #00458e 100%); height: 250vh">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">FaceNet</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/gen">Dataset</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Select
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+
+                <li><a class="dropdown-item" href="#"></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled"></a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <center><img src="static/image.png" style="width: 15%; height: auto; "></center>
+
+
+
+    <p>
+    <h1 align="center" style="color: yellowgreen;">𝓣𝓱𝓮 𝓣𝓱𝓲𝓻𝓭 𝓔𝔂𝓮</h1>
+    </p>
+    <div class="container mx-4">
+      <div class="row">
+        <h2 style="color: green;">Select a file to upload</h2>
+        <p>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        </p>
+        {% if filename %}
+        <div>
+          <!-- <img src="{{ url_for('display_image', filename=filename) }}"> -->
+          <img src="/display/{{filename}}">
+        </div>
+        {% endif %}
+        <form method="post" action="/" enctype="multipart/form-data">
+          <dl>
+            <p>
+              <input type="file" name="file" class="form-control" autocomplete="off">
+              {{filename}}
+            </p>
+          </dl>
+
+          <div class="container mx-4 my-10">
+            <!-- <input type="submit" value="Crop" class="btn btn-primary mx-sm-3 mb-2"> -->
+            <input a class="btn btn-primary" type="submit" value="Take Attendance" role="button"
+              style="margin:5px;"></a>
+              
+            <a class="btn btn-info" href="/liveatt" role="button" style="margin:20px;">Live Attendance</a>
+            <!-- <a class="btn btn-dark" href="/takeattendance" role="button" style="margin: 20px;">Take Attendance</a> -->
+            <a class="btn btn-success" href="/gen" role="button" style="margin:20px;">Generate Dataset</a>
+            <a class="btn btn-warning" href="/train" role="button" style="margin:20px;">Train</a>
+            <!-- <a class="btn btn-info" href="/loadmodel" role="button" style="margin:20px;">Load Model</a> -->
+            <!-- <a class="btn color btn-info" href="/view" role="button" style="margin:20px;">View Attendance</a> -->
+            <a class="btn btn-dark" href="/addnew" role="button" style="margin:20px;">Add new Student</a>
+            <a class="btn btn-danger" href="/viewstudent" role="button" style="margin:20px;">View Student</a>
+            <a class="btn btn-primary" href="/teacher" role="button" style="margin:20px;">Add new Teacher</a>
+            <a class="btn color btn-info" href="/viewteacher" role="button" style="margin:20px;">View Teacher</a>
+            
+          </div class="container">
+          <p class="font-monospace" ><H4>
+            <font color="#FFFFFF">{{std_list}} </H4>  
+          </p>
+          </font>
+          </p>
+          <br>
+          <p class="font-monospace">
+             <font color="#FF0000">{{st1}}
+          </p>
+          </font>
+          </p>
+          <p class="font-monospace">
+            <font color="rgb(128, 128, 0)">{{path}}
+          </p>
+          </font>
+          </p>
+          <br>
+          <p class="font-monospace">
+            <font color="rgb(128, 128, 0)">{{msg}}
+          </p>
+          </font>
+          </p>
+          <br>
+          <p class="font-monospace">
+            <font color="rgb(128, 128, 0)">{{msg1}}
+          </p>
+          </font>
+          </p>
+          <br>
+          <p class="font-monospace">
+            <font color="rgb(128, 128, 0)">{{msg2}}
+          </p>
+          </font>
+          </p>
+          <br>
+          <p class="font-monospace">
+            <font color="rgb(128, 128, 0)">{{cds}}
+          </p>
+          </font>
+          </p>
+        </form>
+
+
+
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- This is Footer -->
+    <div class="container my-10 ">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">©FaceNet, Inc</p>
+      </footer>
+    </div class="container">
+  </div>
+
+</body>
+
+</html>
